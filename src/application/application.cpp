@@ -149,6 +149,13 @@ namespace MySQL2PSQL
 
 			CLog::instance()->information("Count of tables: " + CString::fromNumber(m_tables.size()));
 
+			if (m_tables.size() == 0)
+			{
+				CLog::instance()->warning("No data found for migration");
+
+				return false;
+			}
+
 			return true;
 		}
 
